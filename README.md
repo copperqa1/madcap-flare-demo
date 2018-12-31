@@ -6,20 +6,20 @@ Install Madcap Flare - Non-Intractive Mode.
 - Open the command line
 - Change the directory path to where SetupMadCapFlare.exe is saved
 
-    $ cd C:\Download_path_for_SetupMadCapFlare
+    $ cd C:\Download_path_for_SetupMadCapFlare 
 
 - Call the exe and add a flag
 
-    $ SetupMadCapFlare.exe -silent 
+    $ SetupMadCapFlare.exe -silent <br/>
 	silent will install Flare in the background.
 	
-Building Madcap Flare Project using `madbuild` cli.
+#Building Madcap Flare Project using `madbuild` cli.
 - Building All Targets in Project Using the Command Line.
 	
-	$ ```madbuild -project MyProject.flprj```
+	$ ```madbuild -project MyProject.flprj``` <br/>
 	madbuild -project [project] will build all targets available in current project.
 
 - Building Specific Targets in Project Using the Command Line.
 
-	$```madbuild -project MyProject.flprj -target MyTargetName```
+	$```madbuild -project MyProject.flprj -target MyTargetName``` <br/>
 	madbuild -project [project] -target [MyTargetName] is representing specfic build target and ```-log true``` option will enable logging.
