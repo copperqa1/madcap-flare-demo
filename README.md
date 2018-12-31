@@ -1,5 +1,5 @@
-Madcap Flare
-Using Flare, You can create batch targets for a project. From the Batch Target Editor, you can select actions to take and schedule tasks. To generate output from Flare targets using commands specified outside of the Flare user interface, you can use a command line executable called madbuild.exe. This executable is located in the Flare.app folder of your folder installation.
+##Madcap Flare
+Using Madcap Flare, You can create batch targets for a project. From the Batch Target Editor, you can select actions to take and schedule tasks. To generate output from Flare targets using commands specified outside of the Flare user interface, you can use a command line executable called madbuild.exe. This executable is located in the Flare.app folder of your folder installation.
 
 Install Madcap Flare - Non-Intractive Mode.
 - Open the command line
