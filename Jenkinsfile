@@ -6,7 +6,7 @@ pipeline {
         stage('Building the Solution') {
             steps {
                 checkout scm
-                bat 'start cmd.exe /c madcap_build.bat'
+                bat 'madcap_build.bat'
                 echo 'Success!!'
             }
         }
