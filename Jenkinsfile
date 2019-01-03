@@ -17,15 +17,8 @@ pipeline {
 				label 'madcap-linux'
 			}
             steps {
-				step([  $class: 'CopyArtifact',
-                        filter: 'NewProject.zip',
-                        fingerprintArtifacts: true,
-                        projectName: '${JOB_NAME}',
-                        selector: [$class: 'SpecificBuildSelector', buildNumber: '${BUILD_NUMBER}']
-                ])
-				unzip zipFile: 'NewProject.zip', dir: './NewProject'
-				//echo "Deploy Success!!"
-            }
+				sh 'pwd'
+				}
         }
     }
 }
