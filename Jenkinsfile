@@ -17,7 +17,6 @@ pipeline {
 				label 'madcap-linux'
 			}
             steps {
-				checkout none
 				step([  $class: 'CopyArtifact',
                         filter: 'NewProject.zip',
                         fingerprintArtifacts: true,
