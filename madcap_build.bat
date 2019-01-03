@@ -8,7 +8,7 @@ set zip="C:\Program Files\7-Zip\7z.exe"
 set filename="NewProject.zip"
 set pathtobackup="Output\user\Book"
 set command="a"
-set switch="-aotzip"
+set switch="-tzip"
 %zip% %command% %switch% %filename% %pathtobackup%\*.pdf
 echo %errorlevel%
 
