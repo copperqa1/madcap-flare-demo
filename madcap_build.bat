@@ -4,10 +4,12 @@ madbuild -project NewProject.flprj -target Book -log true
 echo %errorlevel%
 
 REM Creating Zip File of Build Output
-set zip ="C:\Program Files\7-Zip\7za.exe"
-set filename="%date%.NewProject.zip"
+set zip="C:\Program Files\7-Zip\7z.exe"
+set filename="NewProject.zip"
 set pathtobackup="Output\user\Book"
-%zip% -t7z %filename% %pathtobackup%\*.pdf
+set command="ao"
+set switch="-tzip"
+%zip% %command% %switch% %filename% %pathtobackup%\*.pdf
 echo %errorlevel%
 
 exit /b 0
