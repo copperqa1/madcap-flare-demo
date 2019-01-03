@@ -14,7 +14,7 @@ pipeline {
         }
 		stage('Deploying Build') {
 			agent {
-				label 'madcap-linux'
+				label 'master'
 			}
             steps {
 				step([  $class: 'CopyArtifact',
