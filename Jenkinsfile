@@ -6,10 +6,8 @@ pipeline {
 				label 'madcap'
 			}
             steps {
-				sh 'mkdir archive'
-                sh 'echo test > archive/test.txt'
-                zip zipFile: 'test.zip', archive: false, dir: 'archive'
-                archiveArtifacts artifacts: 'test.zip', fingerprint: true
+                sh 'echo test > test.txt'
+                archiveArtifacts artifacts: 'test.txt', fingerprint: true
             }
         }
 		stage('Deploying Build') {
@@ -18,13 +16,12 @@ pipeline {
 			}
             steps {
 				step([  $class: 'CopyArtifact',
-                        filter: 'test.zip',
+                        filter: 'test.txt',
                         fingerprintArtifacts: true,
                         projectName: '${JOB_NAME}',
                         selector: [$class: 'SpecificBuildSelector', buildNumber: '${BUILD_NUMBER}']
                 ])
-                unzip zipFile: 'test.zip', dir: './archive_new'
-                sh 'cat archive_new/test.txt'
+                sh 'cat test.txt'
 			}
         }
     }
