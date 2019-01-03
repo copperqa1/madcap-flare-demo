@@ -8,7 +8,23 @@ pipeline {
             steps {
                 checkout scm
                 bat 'madcap_build.bat'
-                echo 'Success!!'
+                echo 'Build Success!!'
+				archiveArtifacts artifacts: 'NewProject.zip', fingerprint: true
+            }
+        }
+		stage('Deploying Build') {
+			agent {
+				label 'madcap-linux'
+			}
+            steps {
+				step([  $class: 'CopyArtifact',
+                        filter: 'NewProject.zip',
+                        fingerprintArtifacts: true,
+                        projectName: '${JOB_NAME}',
+                        selector: [$class: 'SpecificBuildSelector', buildNumber: '${BUILD_NUMBER}']
+                ])
+				unzip zipFile: 'NewProject.zip', dir: './NewProject'
+				echo "Deploy Success!!"
             }
         }
     }
