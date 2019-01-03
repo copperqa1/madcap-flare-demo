@@ -6,10 +6,10 @@ pipeline {
 				label 'madcap'
 			}
             steps {
-                checkout scm
-                bat 'madcap_build.bat'
-                echo 'Build Success!!'
-                archiveArtifacts artifacts: '*.zip', fingerprint: true, onlyIfSuccessful: true 
+				sh 'mkdir archive'
+                sh 'echo test > archive/test.txt'
+                zip zipFile: 'test.zip', archive: false, dir: 'archive'
+                archiveArtifacts artifacts: 'test.zip', fingerprint: true
             }
         }
 		stage('Deploying Build') {
@@ -17,8 +17,15 @@ pipeline {
 				label 'madcap-linux'
 			}
             steps {
-				sh 'pwd'
-				}
+				step([  $class: 'CopyArtifact',
+                        filter: 'test.zip',
+                        fingerprintArtifacts: true,
+                        projectName: '${JOB_NAME}',
+                        selector: [$class: 'SpecificBuildSelector', buildNumber: '${BUILD_NUMBER}']
+                ])
+                unzip zipFile: 'test.zip', dir: './archive_new'
+                sh 'cat archive_new/test.txt'
+			}
         }
     }
 }
