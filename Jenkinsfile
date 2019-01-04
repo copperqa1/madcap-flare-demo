@@ -9,7 +9,7 @@ pipeline {
                 checkout scm
                 bat 'madcap_build.bat'
                 echo 'Build Success!!'
-				zip zipFile: 'NewProject.zip', archive: false, dir: 'Output\user\Book'
+				zip zipFile: 'NewProject.zip', archive: false, dir: 'Output\\user\\Book'
                 archiveArtifacts artifacts: '*.zip', fingerprint: true, onlyIfSuccessful: true 
             }
         }
