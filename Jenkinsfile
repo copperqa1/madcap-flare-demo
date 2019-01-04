@@ -9,6 +9,7 @@ pipeline {
                 checkout scm
                 bat 'madcap_build.bat'
                 echo 'Build Success!!'
+				zip zipFile: 'NewProject.zip', archive: false, dir: 'Output\user\Book'
                 archiveArtifacts artifacts: '*.zip', fingerprint: true, onlyIfSuccessful: true 
             }
         }
@@ -23,6 +24,7 @@ pipeline {
                         projectName: '${JOB_NAME}',
                         selector: [$class: 'SpecificBuildSelector', buildNumber: '${BUILD_NUMBER}']
                 ])
+				unzip zipFile: 'NewProject.zip'
 				echo "Deploy Success!!"
             }
         }
