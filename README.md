@@ -26,7 +26,7 @@ Install Madcap Flare - Non-Intractive Mode.
 
 ## Exceptions & Error Handling
 
-Using madbuild cli, there are warnings in the build of flare. Build output using the command line, Flare sends a value to the command line's ERRORLEVEL global variable. This value indicates the success, or lack of success, of the compilation and/or publishing process. Print error code using ECHO %ERRORLEVEL% at the command prompt after build.
+Using madbuild cli, there are warnings in the build of flare. Build output using the command line, Flare sends a value to the command line's ERRORLEVEL global variable. This value indicates the success, or lack of success, of the compilation and/or publishing process. Print error code using `ECHO %ERRORLEVEL%` at the command prompt after build.
 
 ## Common error codes
 
