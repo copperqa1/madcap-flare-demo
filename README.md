@@ -30,18 +30,21 @@ Using madbuild cli, there are warnings in the build of flare. Build output using
 
 ## Common error codes
 
- ```0 = Success - No problems
+ ```
+	0 = Success - No problems
     1 = One or more Target Builds failed – One or more of the targets failed to compile
     2 = One or more Publish Targets failed – One or more of the targets failed to compile
     3 = Build completed with compiler warnings
     4 = Compiler reported errors
     5 = Failed to process one or more project import files
     6 = Failed to load topic
-    7 = Missing linked file```
+    7 = Missing linked file
+ ```
 	
 ## Application & Input Errors
 
- ```-1 = Application error – Something critical has forced Flare to close
+ ```
+	-1 = Application error – Something critical has forced Flare to close
     1000 = Zero arguments passed in
     1001 = Show Help
     2000 = Unlicensed Flare
@@ -54,7 +57,8 @@ Using madbuild cli, there are warnings in the build of flare. Build output using
     2007 = Batch file does not exist
     2008 = Floating session request failed
     2009 = Floating session timeout
-    2010 = Target not found```
+    2010 = Target not found
+ ```
 	
 ## Warnings
 	
